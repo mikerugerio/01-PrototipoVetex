@@ -15,14 +15,11 @@ import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 
 import * as $ from 'jquery';
 
-import { NotaVentaComponent } from './vertex/nota-venta/nota-venta.component';
-
 @NgModule({
     declarations: [
         AppComponent,
         FullLayoutComponent,
         ContentLayoutComponent,
-        NotaVentaComponent,
         // ChangeLogComponent,
         // FullLayoutPageComponent,
         // ContentLayoutPageComponent
