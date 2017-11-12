@@ -11,7 +11,7 @@ export const ROUTES: RouteInfo[] = [
     {
         path: '', title: 'Operaciones', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false,
         submenu: [
-            { path: 'javascript:;', title: 'Nota Venta', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
+            { path: '/full-layout/notaDeVenta', title: 'Nota Venta', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
             {
                 path: '', title: 'Clientes', icon: '', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false,
                 submenu: [
