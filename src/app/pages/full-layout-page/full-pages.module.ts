@@ -5,6 +5,7 @@ import { FullPagesRoutingModule } from "./full-pages-routing.module";
 
 import { FullLayoutPageComponent } from './full-layout-page.component';
 import { NotaVentaComponent } from "app/vertex/nota-venta/nota-venta.component";
+import { BookComponent } from "app/vertex/book/book.component";
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import { NotaVentaComponent } from "app/vertex/nota-venta/nota-venta.component";
     ],
     declarations: [
         FullLayoutPageComponent,
-        NotaVentaComponent
+        NotaVentaComponent,
+        BookComponent,
     ]
 })
 export class FullPagesModule { }
