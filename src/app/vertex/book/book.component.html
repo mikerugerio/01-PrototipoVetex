@@ -1,0 +1,21 @@
+<input
+    (keyup.enter)="createBook(name)" #name
+    type="text" class="form-control"
+>
+
+
+<ul class="list-group">
+  <li
+          *ngFor="let libro of books"
+          class="list-group-item">
+      <button
+          (click)="updateBook(libro)"
+          class="btn btn-default btn-sm">Update</button>
+      <button
+              (click)="deleteBook(libro)"
+              class="btn btn-default btn-sm">Delete</button>
+      {{ libro.name}}
+
+  </li>
+
+</ul>
