@@ -1,7 +1,7 @@
 
 
 <div class="col-md-6">
-  <p>Nombre</p>
+  <h4 class="card-title">Nombre</h4>
     <input
       (keyup.enter)="createBook(name)" #name
       type="text" class="form-control round"
@@ -10,22 +10,32 @@
 
 <br>
 
-<ul class="list-group">
-  <li
-    *ngFor="let libro of books"
-    class="list-group-item">
+<!--Basic List Group Starts-->
+<div class="col-sm-12 col-md-6 col-lg-8">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title">Lista de Libros</h4>
 
-      <button
-        (click)="updateBook(libro)"
-        class="btn btn-raised gradient-mint white btn-round">Actualizar</button>
+    </div>
+    <div class="card-body">
+      <div class="card-block">
+        <ul class="list-group">
 
-      <button
-        (click)="deleteBook(libro)"
-        class="btn btn-raised gradient-ibiza-sunset white btn-round">Borrar</button>
+          <li
+            *ngFor="let libro of books"
+            class="list-group-item">
+            <button
+              (click)="updateBook(libro)"
+              class="btn btn-raised gradient-mint white btn-round">Actualizar</button>
+            <button
+              (click)="deleteBook(libro)"
+              class="btn btn-raised gradient-ibiza-sunset white btn-round">Borrar</button>
+            {{ libro.name}}
+          </li>
 
-    {{ libro.name}}
-
-  </li>
-
-</ul>
-
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Basic List Group Ends-->
