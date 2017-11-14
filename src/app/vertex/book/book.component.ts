@@ -36,7 +36,7 @@ export class BookComponent {
     }
 
     updateBook(book){
-        book.name = book.name + "$";
+        book.name = book.name + " " + book.name;
         this.http.put(this.urlServidor +'/'+ book.id , book)
             .subscribe(respuesta => {
                 console.log(respuesta.json());
