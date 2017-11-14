@@ -1,21 +1,31 @@
-<input
-    (keyup.enter)="createBook(name)" #name
-    type="text" class="form-control"
->
 
+
+<div class="col-md-6">
+  <p>Nombre</p>
+    <input
+      (keyup.enter)="createBook(name)" #name
+      type="text" class="form-control round"
+    >
+</div>
+
+<br>
 
 <ul class="list-group">
   <li
-          *ngFor="let libro of books"
-          class="list-group-item">
+    *ngFor="let libro of books"
+    class="list-group-item">
+
       <button
-          (click)="updateBook(libro)"
-          class="btn btn-default btn-sm">Update</button>
+        (click)="updateBook(libro)"
+        class="btn btn-raised gradient-mint white btn-round">Actualizar</button>
+
       <button
-              (click)="deleteBook(libro)"
-              class="btn btn-default btn-sm">Delete</button>
-      {{ libro.name}}
+        (click)="deleteBook(libro)"
+        class="btn btn-raised gradient-ibiza-sunset white btn-round">Borrar</button>
+
+    {{ libro.name}}
 
   </li>
 
 </ul>
+
