@@ -18,4 +18,7 @@ export class FmReactiveComponent implements OnInit{
     });
   }
 
+  onSubmit(){
+    console.log(this.signupForm);
+  }
 }
