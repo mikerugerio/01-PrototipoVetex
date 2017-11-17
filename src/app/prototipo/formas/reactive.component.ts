@@ -9,11 +9,12 @@ import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 export class FmReactiveComponent implements OnInit{
   genders = ['male', 'female'];
   signupForm: FormGroup;
+  usuariosProhibidos = ['Mike','Dani'];
 
   ngOnInit(){
     this.signupForm = new FormGroup({
       'datosUsuario': new FormGroup({
-        'username': new FormControl(null, Validators.required),
+        'username': new FormControl(null, [Validators.required, this.forbiddenNames.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email]),
       }),
       'gender': new FormControl('male'),
@@ -28,5 +29,12 @@ export class FmReactiveComponent implements OnInit{
   onAddHobby(){
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.signupForm.get('hobbies')).push(control)
+  }
+
+  forbiddenNames(control: FormControl): {[s: string]: boolean} {
+    if (this.usuariosProhibidos.indexOf(control.value)!== -1){
+      return {'nombreEsProhibido':true};
+    }
+    return null;
   }
 }
