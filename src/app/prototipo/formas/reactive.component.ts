@@ -33,7 +33,10 @@ export class FmReactiveComponent implements OnInit{
       }),
       'gender': new FormControl('male'),
       'hobbies': new FormArray([]),
-      'estados': new FormControl()
+      'estados': new FormControl(),
+      'productType': new FormControl(),
+      'product': new FormControl(),
+      'product2': new FormControl(),
     });
 
     this.signupForm.valueChanges.subscribe(
@@ -81,4 +84,20 @@ export class FmReactiveComponent implements OnInit{
       .distinctUntilChanged()
       .map(term => term.length < 2 ? []
         : states.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
+
+  productTypes = ['small', 'large'];
+  allProducts = [
+    {name: 'SmallWidget1', type: 'small'},
+    {name: 'SmallWidget2', type: 'small'},
+    {name: 'SmallWidget3', type: 'small'},
+    {name: 'LargeWidget1', type: 'large'},
+    {name: 'LargeWidget2', type: 'large'}
+  ];
+  productsAfterChangeEvent = [];
+
+  // Rebuild the product list every time the product type changes.
+  typeChanged() {
+    const productType = this.signupForm.get('productType').value;
+    this.productsAfterChangeEvent = this.allProducts.filter(p => p.type == productType);
+  }
 }

@@ -11,6 +11,8 @@ import { NotaVentaComponent } from "app/vertex/nota-venta/nota-venta.component";
 import { BookComponent } from "app/vertex/book/book.component";
 import { FmReactiveComponent } from "app/prototipo/formas/reactive.component";
 
+import { ProductFilterPipe } from 'app/prototipo/listDependendientes/product-filter.pipe';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -22,7 +24,8 @@ import { FmReactiveComponent } from "app/prototipo/formas/reactive.component";
         FullLayoutPageComponent,
         NotaVentaComponent,
         BookComponent,
-        FmReactiveComponent
+        FmReactiveComponent,
+        ProductFilterPipe
     ]
 })
 export class FullPagesModule { }
