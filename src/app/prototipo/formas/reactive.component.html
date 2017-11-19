@@ -6,11 +6,18 @@
         <div formGroupName="datosUsuario">
           <div class="form-group">
             <label for="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              formControlName="username"
-              class="form-control">
+
+            <div class="position-relative has-icon-right">
+              <input
+                type="text"
+                id="username"
+                formControlName="username"
+                class="form-control round"
+                name="form-control-with-icon">
+              <div class="form-control-position">
+                <i class="ft-user primary"></i>
+              </div>
+            </div>
             <span
               *ngIf="!signupForm.get('datosUsuario.username').valid && signupForm.get('datosUsuario.username').touched"
               class="help-block">
@@ -24,11 +31,18 @@
           </div>
           <div class="form-group">
             <label for="email">email</label>
-            <input
-              type="text"
-              id="email"
-              formControlName="email"
-              class="form-control">
+
+            <div class="position-relative has-icon-right">
+              <input
+                type="text"
+                id="email"
+                formControlName="email"
+                class="form-control round"
+                name="form-control-with-icon">
+              <div class="form-control-position">
+                <i class="ft-mail primary"></i>
+              </div>
+            </div>
             <span
               *ngIf="!signupForm.get('datosUsuario.email').valid && signupForm.get('datosUsuario.email').touched"
               class="help-block">Please enter a valid email!</span>
