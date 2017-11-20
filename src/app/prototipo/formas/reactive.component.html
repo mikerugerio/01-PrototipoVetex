@@ -109,7 +109,7 @@
 
         <button (click)="onPrueba($event)">Prueba</button>
 
-        <input #email (keyup.enter)="presionar(email.value)" />
+        <input [value]="email" (keyup.enter)=" email =$event.target.value; presionar()" />
 
         <span
           *ngIf="!signupForm.valid && signupForm.touched"

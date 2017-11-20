@@ -106,8 +106,12 @@ export class FmReactiveComponent implements OnInit{
   onPrueba($event){
     console.log("Prueba on Click", $event);
   }
+  
+  //DEMO two-way binding
+  email = "mrugerio@gmail.com";
 
-  presionar(correo){
-    console.log(correo)
+  presionar(){
+    console.log(this.email)
   }
+
 }
