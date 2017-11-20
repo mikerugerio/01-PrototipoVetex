@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FullPagesRoutingModule } from "./full-pages-routing.module";
@@ -19,6 +19,7 @@ import { ProductFilterPipe } from 'app/prototipo/listDependendientes/product-fil
         FullPagesRoutingModule,
         ReactiveFormsModule,
         NgbModule,
+        FormsModule
     ],
     declarations: [
         FullLayoutPageComponent,
