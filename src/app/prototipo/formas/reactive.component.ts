@@ -25,6 +25,8 @@ export class FmReactiveComponent implements OnInit{
   signupForm: FormGroup;
   usuariosProhibidos = ['Mike','Dani'];
 
+  titulo = "Pantalla Reactiva";
+
   ngOnInit(){
     this.signupForm = new FormGroup({
       'datosUsuario': new FormGroup({
@@ -99,5 +101,13 @@ export class FmReactiveComponent implements OnInit{
   typeChanged() {
     const productType = this.signupForm.get('productType').value;
     this.productsAfterChangeEvent = this.allProducts.filter(p => p.type == productType);
+  }
+
+  onPrueba($event){
+    console.log("Prueba on Click", $event);
+  }
+
+  presionar($event){
+    console.log($event.target.value)
   }
 }
