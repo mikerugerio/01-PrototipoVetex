@@ -107,7 +107,7 @@ export class FmReactiveComponent implements OnInit{
     console.log("Prueba on Click", $event);
   }
 
-  presionar($event){
-    console.log($event.target.value)
+  presionar(correo){
+    console.log(correo)
   }
 }
