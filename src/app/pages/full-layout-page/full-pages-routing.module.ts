@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FullLayoutPageComponent } from 'app/pages/full-layout-page/full-layout-page.component';
 
 import { NotaVentaComponent } from 'app/vertex/nota-venta/nota-venta.component';
-import { BookComponent} from "app/vertex/book/book.component";
+import { BookComponent} from "app/prototipo/book/book.component";
 import { FmReactiveComponent } from "app/prototipo/formas/reactive.component";
 
 const routes: Routes = [

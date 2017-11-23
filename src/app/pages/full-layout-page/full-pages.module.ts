@@ -8,7 +8,7 @@ import { FullPagesRoutingModule } from "./full-pages-routing.module";
 import { FullLayoutPageComponent } from './full-layout-page.component';
 
 import { NotaVentaComponent } from "app/vertex/nota-venta/nota-venta.component";
-import { BookComponent } from "app/vertex/book/book.component";
+import { BookComponent } from "app/prototipo/book/book.component";
 import { FmReactiveComponent } from "app/prototipo/formas/reactive.component";
 
 import { ProductFilterPipe } from 'app/prototipo/listDependendientes/product-filter.pipe';
