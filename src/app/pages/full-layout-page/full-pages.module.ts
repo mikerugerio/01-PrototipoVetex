@@ -12,6 +12,7 @@ import { BookComponent } from "app/prototipo/book/book.component";
 import { FmReactiveComponent } from "app/prototipo/formas/reactive.component";
 
 import { ProductFilterPipe } from 'app/prototipo/listDependendientes/product-filter.pipe';
+import { UsuariosService } from "../../vertex/nota-venta/services/usuarios.service";
 
 @NgModule({
     imports: [
@@ -27,6 +28,7 @@ import { ProductFilterPipe } from 'app/prototipo/listDependendientes/product-fil
         BookComponent,
         FmReactiveComponent,
         ProductFilterPipe
-    ]
+    ],
+    providers: [ UsuariosService ],
 })
 export class FullPagesModule { }
