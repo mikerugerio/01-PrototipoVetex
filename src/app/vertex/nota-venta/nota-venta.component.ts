@@ -14,9 +14,8 @@ export class NotaVentaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
     this.formaNotaVenta = new FormGroup({
-
+      'cliente': new FormControl(),
     });
   }
 
