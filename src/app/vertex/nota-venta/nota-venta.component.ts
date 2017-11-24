@@ -28,6 +28,7 @@ export class NotaVentaComponent implements OnInit {
       'cliente': new FormControl(),
       'fechaCompra': new FormControl(),
       'prodMica': new FormControl(),
+      'rate' : new FormControl(),
     });
   }
 

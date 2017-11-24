@@ -45,6 +45,38 @@
                     placeholder="Nombre Mica" />
                 </p>
               </div>
+
+              <!--Custom decimal rating Starts-->
+              <div class="col-md-12 col-lg-6">
+                <div class="card">
+
+                  <div class="card-body">
+                    <div class="card-block">
+                      <ng-template #t let-fill="fill">
+                        <span *ngIf="fill === 100" class="star full">&#9733;</span>
+                        <span *ngIf="fill === 0" class="star">&#9733;</span>
+                        <span *ngIf="fill < 100 && fill > 0" class="star">
+              <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+              </span>
+                      </ng-template>
+
+                      <div class="form-group">
+                      <ngb-rating [(rate)]="decimalCurrentRate"
+                                  formControlName="rate"
+                                  [starTemplate]="t"
+                                  [readonly]="true"
+                                  max="5"></ngb-rating>
+                      </div>
+                      <p>Rate: <b>{{decimalCurrentRate}}</b></p>
+                      <button class="btn btn-sm btn-outline-primary" (click)="decimalCurrentRate = 0.5">0.5</button>
+                      <button class="btn btn-sm btn-outline-primary" (click)="decimalCurrentRate = 1.0">1.0</button>
+                      <button class="btn btn-sm btn-outline-primary" (click)="decimalCurrentRate = 1.5">1.5</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Custom decimal rating Ends-->
+
             </ng-template>
           </ngb-panel>
           <ngb-panel id="2">
