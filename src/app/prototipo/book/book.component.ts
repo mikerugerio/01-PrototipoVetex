@@ -1,7 +1,12 @@
-import { Http} from '@angular/http';
 import { Component} from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 
 import { environment } from 'environments/environment';
+
+interface BookResponse {
+  id: number
+  name: string
+}
 
 @Component({
   selector: 'app-book',
@@ -10,28 +15,28 @@ import { environment } from 'environments/environment';
 })
 export class BookComponent {
 
-    books: any[];
+    books: BookResponse[];
     private urlServidor:string;
 
-
-    constructor(private http: Http) {
-
+    constructor(private http: HttpClient) {
         this.urlServidor = environment.serverUrl + 'book';
-        http.get(this.urlServidor)
-            .subscribe(response => {
-                this.books = response.json();
-            });
 
+        this.http.get<BookResponse[]>(this.urlServidor)
+            .subscribe(response => {
+              console.log(response);
+              console.log(response.map(r=>r.name));
+              this.books = response;
+            });
     }
 
     createBook(input : HTMLInputElement){
-        let book = { name : input.value};
+        let libro : BookResponse = { name : input.value, id: null};
         input.value='';
 
-        this.http.post(this.urlServidor, book)
+        this.http.post<BookResponse>(this.urlServidor, libro)
             .subscribe(response => {
-                book['id'] = response.json().id;
-                this.books.splice(0,0, book);
+                libro = response;
+                this.books.splice(0,0, libro);
             });
     }
 
@@ -39,7 +44,7 @@ export class BookComponent {
         book.name = book.name + " " + book.name;
         this.http.put(this.urlServidor +'/'+ book.id , book)
             .subscribe(respuesta => {
-                console.log(respuesta.json());
+                console.log(respuesta);
             })
     }
 

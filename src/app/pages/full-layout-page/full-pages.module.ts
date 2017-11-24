@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FullPagesRoutingModule } from "./full-pages-routing.module";
 
@@ -20,7 +21,8 @@ import { UsuariosService } from "../../vertex/nota-venta/services/usuarios.servi
         FullPagesRoutingModule,
         ReactiveFormsModule,
         NgbModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule,
     ],
     declarations: [
         FullLayoutPageComponent,
