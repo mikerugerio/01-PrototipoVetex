@@ -14,6 +14,7 @@ import { FmReactiveComponent } from "app/prototipo/formas/reactive.component";
 
 import { ProductFilterPipe } from 'app/prototipo/listDependendientes/product-filter.pipe';
 import { UsuariosService } from "../../vertex/nota-venta/services/usuarios.service";
+import { MicasService } from "../../vertex/nota-venta/services/micas.service";
 
 @NgModule({
     imports: [
@@ -31,6 +32,9 @@ import { UsuariosService } from "../../vertex/nota-venta/services/usuarios.servi
         FmReactiveComponent,
         ProductFilterPipe
     ],
-    providers: [ UsuariosService ],
+    providers: [
+      UsuariosService,
+      MicasService,
+    ],
 })
 export class FullPagesModule { }

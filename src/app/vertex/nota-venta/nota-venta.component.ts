@@ -6,6 +6,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 
 import { UsuariosService } from "./services/usuarios.service";
+import { MicasService } from "./services/micas.service";
 
 @Component({
   selector: 'nota-venta',
@@ -17,7 +18,10 @@ export class NotaVentaComponent implements OnInit {
   formaNotaVenta: FormGroup;
   titulo = "Nota de Venta";
 
-  constructor(private usuariosService: UsuariosService) { }
+  constructor(
+    private usuariosService: UsuariosService,
+    private micasService: MicasService
+  ) { }
 
   ngOnInit() {
     this.formaNotaVenta = new FormGroup({
@@ -37,5 +41,12 @@ export class NotaVentaComponent implements OnInit {
       .distinctUntilChanged()
       .map(term => term.length < 2 ? []
         : this.usuariosService.clientes.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
+
+  busquedaMica = (text$: Observable<string>) =>
+    text$
+      .debounceTime(200)
+      .distinctUntilChanged()
+      .map(term => term.length < 2 ? []
+        : this.micasService.micas.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
 
 }
