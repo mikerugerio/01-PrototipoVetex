@@ -27,6 +27,56 @@
           </div>
         </div>
 
+        <!--One open panel at a time Starts-->
+        <ngb-accordion [closeOthers]="true" activeIds="">
+          <ngb-panel id="1">
+            <ng-template ngbPanelTitle>
+              <span>&#9830; Producto <b>Micas</b> </span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <div class="form-group">
+                <p>
+                  <input
+                    type="text"
+                    id="prodMica"
+                    class="form-control"
+                    formControlName="prodMica"
+
+                    placeholder="Nombre Mica" />
+                </p>
+              </div>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="2">
+            <ng-template ngbPanelTitle>
+              <span>&#9830; Producto <b>Armazones</b> </span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                heard of them accusamus labore sustainable VHS.</p>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="3">
+            <ng-template ngbPanelTitle>
+              <span>&#9830; Producto <b>Otros</b> </span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                heard of them accusamus labore sustainable VHS.</p>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+        <!--One open panel at a time Ends-->
+
+
         <button class="btn btn-raised gradient-ibiza-sunset white" type="submit">Aceptar</button>
 
       </form>

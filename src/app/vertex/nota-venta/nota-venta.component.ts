@@ -23,6 +23,7 @@ export class NotaVentaComponent implements OnInit {
     this.formaNotaVenta = new FormGroup({
       'cliente': new FormControl(),
       'fechaCompra': new FormControl(),
+      'prodMica': new FormControl(),
     });
   }
 
