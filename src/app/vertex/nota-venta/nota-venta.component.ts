@@ -1,16 +1,27 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
-  selector: 'app-nota-venta',
+  selector: 'nota-venta',
   templateUrl: './nota-venta.component.html',
   styleUrls: ['./nota-venta.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class NotaVentaComponent implements OnInit {
+
+  formaNotaVenta: FormGroup;
+  titulo = "Nota de Venta";
 
   constructor() { }
 
   ngOnInit() {
+
+    this.formaNotaVenta = new FormGroup({
+
+    });
+  }
+
+  onAceptar(){
+    console.log(this.formaNotaVenta);
   }
 
 }
