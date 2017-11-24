@@ -14,6 +14,18 @@
             placeholder="Cliente" />
         </div>
 
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control"
+                   placeholder="Fecha Compra (yyyy-mm-dd)"
+                   formControlName="fechaCompra"
+                   ngbDatepicker #d2="ngbDatepicker">
+            <div class="input-group-addon" (click)="d2.toggle()">
+              <i class="fa fa-calendar" style="cursor: pointer;"></i>
+            </div>
+          </div>
+        </div>
+
         <button class="btn btn-raised gradient-ibiza-sunset white" type="submit">Aceptar</button>
 
       </form>

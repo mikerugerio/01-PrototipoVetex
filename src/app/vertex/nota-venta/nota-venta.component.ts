@@ -16,11 +16,12 @@ export class NotaVentaComponent implements OnInit {
   ngOnInit() {
     this.formaNotaVenta = new FormGroup({
       'cliente': new FormControl(),
+      'fechaCompra': new FormControl(),
     });
   }
 
   onAceptar(){
-    console.log(this.formaNotaVenta);
+    console.log(this.formaNotaVenta.value);
   }
 
 }
