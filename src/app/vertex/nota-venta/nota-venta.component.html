@@ -61,16 +61,17 @@
                       </ng-template>
 
                       <div class="form-group">
-                      <ngb-rating [(rate)]="decimalCurrentRate"
-                                  formControlName="rate"
-                                  [starTemplate]="t"
-                                  [readonly]="true"
-                                  max="5"></ngb-rating>
+                      <ngb-rating
+                        [(rate)]="valorDecimal"
+                        formControlName="rate"
+                        [starTemplate]="t"
+                        [readonly]="true"
+                        max="5"></ngb-rating>
                       </div>
-                      <p>Rate: <b>{{decimalCurrentRate}}</b></p>
-                      <button class="btn btn-sm btn-outline-primary" (click)="decimalCurrentRate = 0.5">0.5</button>
-                      <button class="btn btn-sm btn-outline-primary" (click)="decimalCurrentRate = 1.0">1.0</button>
-                      <button class="btn btn-sm btn-outline-primary" (click)="decimalCurrentRate = 1.5">1.5</button>
+                      <p>Rate: <b>{{valorDecimal}}</b></p>
+                      <button class="btn btn-sm btn-outline-primary" (click)="valorDecimal = 0.5">0.5</button>
+                      <button class="btn btn-sm btn-outline-primary" (click)="valorDecimal = 1.0">1.0</button>
+                      <button class="btn btn-sm btn-outline-primary" (click)="valorDecimal = 1.5">1.5</button>
                     </div>
                   </div>
                 </div>
