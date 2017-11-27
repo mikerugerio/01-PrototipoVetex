@@ -56,18 +56,18 @@ export class NotaVentaComponent implements OnInit {
   public someKeyboardConfig: any = {
     behaviour: 'drag',
     connect: true,
-    start: [0, 5],
+    start: [0, 0],
     keyboard: true,
-    step: 0.1,
+    step: 0.05,
     pageSteps: 10,  // number of page steps, defaults to 10
     range: {
       min: 0,
-      max: 5
+      max: 10
     },
     pips: {
       mode: 'count',
       density: 2,
-      values: 6,
+      values: 11,
       stepped: true
     }
   };

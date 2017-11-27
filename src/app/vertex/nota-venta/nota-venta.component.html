@@ -68,7 +68,13 @@
               </div>
 
               <div class="form-group">
-                <nouislider [config]="someKeyboardConfig" [formControl]="formaNotaVenta.controls.valor1"> </nouislider>
+                <nouislider
+                  [config]="someKeyboardConfig"
+                  [formControl]="formaNotaVenta.controls.valor1"
+                  [tooltips]="[ true, true ]"
+                  style="margin-top: 2em;"
+                >
+                </nouislider>
               </div>
 
             </ng-template>
