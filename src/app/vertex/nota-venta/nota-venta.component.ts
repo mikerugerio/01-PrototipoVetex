@@ -29,6 +29,7 @@ export class NotaVentaComponent implements OnInit {
       'fechaCompra': new FormControl(),
       'prodMica': new FormControl(),
       'rate' : new FormControl(),
+      'valor1': new FormControl([ 1, 3 ]),
     });
   }
 
@@ -49,5 +50,26 @@ export class NotaVentaComponent implements OnInit {
       .distinctUntilChanged()
       .map(term => term.length < 2 ? []
         : this.micasService.micas.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
+
+
+  // Keyboard Support Configuration
+  public someKeyboardConfig: any = {
+    behaviour: 'drag',
+    connect: true,
+    start: [0, 5],
+    keyboard: true,
+    step: 0.1,
+    pageSteps: 10,  // number of page steps, defaults to 10
+    range: {
+      min: 0,
+      max: 5
+    },
+    pips: {
+      mode: 'count',
+      density: 2,
+      values: 6,
+      stepped: true
+    }
+  };
 
 }
