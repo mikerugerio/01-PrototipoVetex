@@ -92,4 +92,8 @@ export class NotaVentaComponent implements OnInit {
     }
   };
 
+  asignaGrad(valor){
+    this.formaNotaVenta.controls.valor2.setValue(valor);
+  }
+
 }
