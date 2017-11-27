@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { NouisliderModule } from 'ng2-nouislider';
 
 import { FullPagesRoutingModule } from "./full-pages-routing.module";
 
@@ -24,6 +25,7 @@ import { MicasService } from "../../vertex/nota-venta/services/micas.service";
         NgbModule,
         FormsModule,
         HttpClientModule,
+        NouisliderModule,
     ],
     declarations: [
         FullLayoutPageComponent,
