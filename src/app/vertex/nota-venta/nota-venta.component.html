@@ -69,10 +69,20 @@
 
               <div class="form-group">
                 <nouislider
-                  [config]="someKeyboardConfig"
+                  [config]="someKeyboardConfig1"
                   [formControl]="formaNotaVenta.controls.valor1"
                   [tooltips]="[ true, true ]"
                   style="margin-top: 2em;"
+                >
+                </nouislider>
+              </div>
+
+              <div class="form-group">
+                <nouislider
+                  [min]="0" [max]="20" [step]="0.5"
+                  [formControl]="formaNotaVenta.controls.valor2"
+                  [tooltips]="[ true ]"
+                  style="margin-top: 6em;"
                 >
                 </nouislider>
               </div>

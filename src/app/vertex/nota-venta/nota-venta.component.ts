@@ -30,6 +30,7 @@ export class NotaVentaComponent implements OnInit {
       'prodMica': new FormControl(),
       'rate' : new FormControl(),
       'valor1': new FormControl([ 1, 3 ]),
+      'valor2': new FormControl([ 2 ]),
     });
   }
 
@@ -53,7 +54,7 @@ export class NotaVentaComponent implements OnInit {
 
 
   // Keyboard Support Configuration
-  public someKeyboardConfig: any = {
+  public someKeyboardConfig1: any = {
     behaviour: 'drag',
     connect: true,
     start: [0, 0],
