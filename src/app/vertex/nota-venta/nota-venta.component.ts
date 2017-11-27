@@ -73,4 +73,23 @@ export class NotaVentaComponent implements OnInit {
     }
   };
 
+  public someKeyboardConfig2: any = {
+    behaviour: 'drag',
+    connect: true,
+    start: [0],
+    keyboard: true,
+    step: 1,
+    pageSteps: 10,  // number of page steps, defaults to 10
+    range: {
+      min: 0,
+      max: 10
+    },
+    pips: {
+      mode: 'count',
+      density: 2,
+      values: 11,
+      stepped: true
+    }
+  };
+
 }
