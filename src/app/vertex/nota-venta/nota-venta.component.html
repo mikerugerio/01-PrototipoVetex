@@ -105,6 +105,9 @@
                 <li
                   *ngFor="let mica of formaNotaVenta.get('pedidoMicas').controls"
                   class="list-group-item">
+                  <button
+                    (click)="deleteMica(mica)"
+                    class="btn btn-raised gradient-ibiza-sunset white btn-round">Borrar</button>
                   {{ mica.value }}
                 </li>
               </ul>

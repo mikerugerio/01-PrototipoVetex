@@ -101,5 +101,11 @@ export class NotaVentaComponent implements OnInit {
   addListaMicas(){
     this.valorMica = this.formaNotaVenta.get('prodMica').value;
     (this.formaNotaVenta.get('pedidoMicas') as FormArray).push(new FormControl(this.valorMica));
+    this.formaNotaVenta.controls.prodMica.setValue('');
+  }
+
+  deleteMica(mica : FormControl){
+    let index = (this.formaNotaVenta.get('pedidoMicas') as FormArray).controls.indexOf(mica);
+    (this.formaNotaVenta.get('pedidoMicas') as FormArray).removeAt(index);
   }
 }
