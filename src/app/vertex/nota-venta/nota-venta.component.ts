@@ -29,7 +29,7 @@ export class NotaVentaComponent implements OnInit {
       'cliente': new FormControl(),
       'fechaCompra': new FormControl(),
       'prodMica': new FormControl(),
-      'valor2': new FormControl([ 2 ]),
+      'valor2': new FormControl([ 5 ]),
       'pedidoMicas' : new FormArray([]),
     });
   }
@@ -90,5 +90,17 @@ export class NotaVentaComponent implements OnInit {
 
   get listaMicas(){
     return this.formaNotaVenta.get('pedidoMicas') as FormArray;
+  }
+
+  incValor(){
+    this.formaNotaVenta.controls.valor2.setValue(
+      +this.formaNotaVenta.get('valor2').value + .05
+    );
+  }
+
+  decValor(){
+    this.formaNotaVenta.controls.valor2.setValue(
+      +this.formaNotaVenta.get('valor2').value - .05
+    );
   }
 }

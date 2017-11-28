@@ -49,11 +49,15 @@
               </div>
 
               <div class="form-group">
+                <button class="btn btn-sm btn-outline-primary"
+                        (click)="decValor()">- .05</button>
+                <button class="btn btn-sm btn-outline-primary"
+                        (click)="incValor()">+ .05</button>
                 <nouislider
                   [config]="someKeyboardConfig2"
                   [formControl]="formaNotaVenta.controls.valor2"
                   [tooltips]="[ true ]"
-                  style="margin-top: 6em;"
+                  style="margin-top: 2em;"
                 >
                 </nouislider>
                 <br>
