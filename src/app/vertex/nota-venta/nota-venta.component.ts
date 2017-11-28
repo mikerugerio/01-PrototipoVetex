@@ -84,7 +84,7 @@ export class NotaVentaComponent implements OnInit {
   }
 
   deleteMica(mica : FormControl){
-    let index = (this.formaNotaVenta.get('pedidoMicas') as FormArray).controls.indexOf(mica);
+    let index = this.listaMicas.controls.indexOf(mica);
     this.listaMicas.removeAt(index);
   }
 
