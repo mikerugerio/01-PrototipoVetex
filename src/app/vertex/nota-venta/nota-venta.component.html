@@ -44,7 +44,6 @@
                     formControlName="prodMica"
                     [ngbTypeahead]="busquedaMica"
                     placeholder="Nombre Mica"
-                    (keyup.enter)="addListaMicas(mica)" #mica
                   />
                 </p>
               </div>
@@ -96,6 +95,12 @@
                 <button class="btn btn-sm btn-outline-primary"
                         (click)="asignaGrad(8)">8</button>
               </div>
+
+              <button
+                (click)="addListaMicas()"
+                class="btn btn-raised gradient-mint white btn-round">Añadir Mica
+              </button>
+
               <ul class="list-group">
                 <li
                   *ngFor="let mica of formaNotaVenta.get('pedidoMicas').controls"

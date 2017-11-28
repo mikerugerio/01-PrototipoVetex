@@ -17,6 +17,7 @@ export class NotaVentaComponent implements OnInit {
 
   formaNotaVenta: FormGroup;
   titulo = "Nota de Venta";
+  valorMica;
 
   constructor(
     private usuariosService: UsuariosService,
@@ -97,8 +98,8 @@ export class NotaVentaComponent implements OnInit {
     this.formaNotaVenta.controls.valor2.setValue(valor);
   }
 
-  addListaMicas(mica: HTMLInputElement){
-    (this.formaNotaVenta.get('pedidoMicas') as FormArray).push(new FormControl(mica.value));
+  addListaMicas(){
+    this.valorMica = this.formaNotaVenta.get('prodMica').value;
+    (this.formaNotaVenta.get('pedidoMicas') as FormArray).push(new FormControl(this.valorMica));
   }
-
 }
