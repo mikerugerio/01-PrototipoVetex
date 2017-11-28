@@ -103,7 +103,7 @@
 
               <ul class="list-group">
                 <li
-                  *ngFor="let mica of formaNotaVenta.get('pedidoMicas').controls"
+                  *ngFor="let mica of listaMicas.controls"
                   class="list-group-item">
                   <button
                     (click)="deleteMica(mica)"
