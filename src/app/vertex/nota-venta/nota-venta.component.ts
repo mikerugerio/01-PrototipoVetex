@@ -29,7 +29,7 @@ export class NotaVentaComponent implements OnInit {
       'cliente': new FormControl(),
       'fechaCompra': new FormControl(),
       'prodMica': new FormControl(),
-      'valor2': new FormControl([ 5 ]),
+      'valorMica1': new FormControl([ 5 ]),
       'pedidoMicas' : new FormArray([]),
     });
   }
@@ -74,7 +74,23 @@ export class NotaVentaComponent implements OnInit {
   };
 
   asignaGrad(valor){
-    this.formaNotaVenta.controls.valor2.setValue(valor);
+    this.mica01.setValue(valor);
+  }
+
+  incValor(){
+    this.mica01.setValue(
+      +this.mica01.value + .05
+    );
+  }
+
+  decValor(){
+    this.mica01.setValue(
+      +this.mica01.value - .05
+    );
+  }
+
+  get mica01(){
+    return this.formaNotaVenta.get('valorMica1') as FormControl;
   }
 
   addListaMicas(){
@@ -90,17 +106,5 @@ export class NotaVentaComponent implements OnInit {
 
   get listaMicas(){
     return this.formaNotaVenta.get('pedidoMicas') as FormArray;
-  }
-
-  incValor(){
-    this.formaNotaVenta.controls.valor2.setValue(
-      +this.formaNotaVenta.get('valor2').value + .05
-    );
-  }
-
-  decValor(){
-    this.formaNotaVenta.controls.valor2.setValue(
-      +this.formaNotaVenta.get('valor2').value - .05
-    );
   }
 }
