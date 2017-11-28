@@ -18,7 +18,7 @@ const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'C
 @Component({
   selector: 'fmReactive',
   templateUrl: './reactive.component.html',
-  styleUrls: ['./reactive.component.css']
+  styleUrls: ['./reactive.component.scss']
 })
 export class FmReactiveComponent implements OnInit{
   genders = ['male', 'female'];
@@ -39,6 +39,7 @@ export class FmReactiveComponent implements OnInit{
       'productType': new FormControl(),
       'product': new FormControl(),
       'product2': new FormControl(),
+      'rate' : new FormControl(),
     });
 
     this.signupForm.valueChanges.subscribe(
@@ -106,7 +107,7 @@ export class FmReactiveComponent implements OnInit{
   onPrueba($event){
     console.log("Prueba on Click", $event);
   }
-  
+
   //DEMO two-way binding
   email = "mrugerio@gmail.com";
 

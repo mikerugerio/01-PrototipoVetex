@@ -111,7 +111,29 @@
 
         <input [value]="email" (keyup.enter)=" email =$event.target.value; presionar()" />
         <!--input [(ngModel)]="email" (keyup.enter)="presionar()" /-->
-        
+        <br><br>
+
+        <div class="form-group">
+          <ng-template #t let-fill="fill">
+            <span *ngIf="fill === 100" class="star full">&#9733;</span>
+            <span *ngIf="fill === 0" class="star">&#9733;</span>
+            <span *ngIf="fill < 100 && fill > 0" class="star">
+                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                  </span>
+          </ng-template>
+          <ngb-rating
+            [(rate)]="valorDecimal"
+            formControlName="rate"
+            [starTemplate]="t"
+            [readonly]="true"
+            max="5">
+          </ngb-rating>
+          <p>Rate: <b>{{valorDecimal}}</b></p>
+          <button class="btn btn-sm btn-outline-primary" (click)="valorDecimal = 0.5">0.5</button>
+          <button class="btn btn-sm btn-outline-primary" (click)="valorDecimal = 1.0">1.0</button>
+          <button class="btn btn-sm btn-outline-primary" (click)="valorDecimal = 1.5">1.5</button>
+        </div>
+
         <span
           *ngIf="!signupForm.valid && signupForm.touched"
           class="help-block">Please enter a valid data!</span>
