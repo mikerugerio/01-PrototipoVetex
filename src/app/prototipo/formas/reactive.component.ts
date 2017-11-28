@@ -40,6 +40,7 @@ export class FmReactiveComponent implements OnInit{
       'product': new FormControl(),
       'product2': new FormControl(),
       'rate' : new FormControl(),
+      'valor1': new FormControl([ 1, 3 ]),
     });
 
     this.signupForm.valueChanges.subscribe(
@@ -114,5 +115,25 @@ export class FmReactiveComponent implements OnInit{
   presionar(){
     console.log(this.email)
   }
+
+  // Keyboard Support Configuration
+  public someKeyboardConfig1: any = {
+    behaviour: 'drag',
+    connect: true,
+    start: [0, 0],
+    keyboard: true,
+    step: 0.05,
+    pageSteps: 10,  // number of page steps, defaults to 10
+    range: {
+      min: 0,
+      max: 10
+    },
+    pips: {
+      mode: 'count',
+      density: 2,
+      values: 11,
+      stepped: true
+    }
+  };
 
 }

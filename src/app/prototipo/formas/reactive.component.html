@@ -134,6 +134,16 @@
           <button class="btn btn-sm btn-outline-primary" (click)="valorDecimal = 1.5">1.5</button>
         </div>
 
+        <div class="form-group">
+          <nouislider
+            [config]="someKeyboardConfig1"
+            [formControl]="signupForm.controls.valor1"
+            [tooltips]="[ true, true ]"
+            style="margin-top: 2em;"
+          >
+          </nouislider>
+        </div>
+
         <span
           *ngIf="!signupForm.valid && signupForm.touched"
           class="help-block">Please enter a valid data!</span>

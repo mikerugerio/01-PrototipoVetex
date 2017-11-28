@@ -29,7 +29,6 @@ export class NotaVentaComponent implements OnInit {
       'cliente': new FormControl(),
       'fechaCompra': new FormControl(),
       'prodMica': new FormControl(),
-      'valor1': new FormControl([ 1, 3 ]),
       'valor2': new FormControl([ 2 ]),
       'pedidoMicas' : new FormArray([]),
     });
@@ -54,32 +53,13 @@ export class NotaVentaComponent implements OnInit {
         : this.micasService.micas.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
 
 
-  // Keyboard Support Configuration
-  public someKeyboardConfig1: any = {
-    behaviour: 'drag',
-    connect: true,
-    start: [0, 0],
-    keyboard: true,
-    step: 0.05,
-    pageSteps: 10,  // number of page steps, defaults to 10
-    range: {
-      min: 0,
-      max: 10
-    },
-    pips: {
-      mode: 'count',
-      density: 2,
-      values: 11,
-      stepped: true
-    }
-  };
 
   public someKeyboardConfig2: any = {
     behaviour: 'drag',
     connect: true,
     start: [0],
     keyboard: true,
-    step: 1,
+    step: 0.05,
     pageSteps: 10,  // number of page steps, defaults to 10
     range: {
       min: 0,
