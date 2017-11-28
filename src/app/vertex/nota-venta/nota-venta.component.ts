@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormArray, FormControl, FormGroup } from "@angular/forms";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -31,6 +31,7 @@ export class NotaVentaComponent implements OnInit {
       'rate' : new FormControl(),
       'valor1': new FormControl([ 1, 3 ]),
       'valor2': new FormControl([ 2 ]),
+      'pedidoMicas' : new FormArray([]),
     });
   }
 
@@ -94,6 +95,10 @@ export class NotaVentaComponent implements OnInit {
 
   asignaGrad(valor){
     this.formaNotaVenta.controls.valor2.setValue(valor);
+  }
+
+  addListaMicas(mica: HTMLInputElement){
+    (this.formaNotaVenta.get('pedidoMicas') as FormArray).push(new FormControl(mica.value));
   }
 
 }

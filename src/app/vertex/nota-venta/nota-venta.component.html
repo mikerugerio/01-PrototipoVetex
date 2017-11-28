@@ -43,7 +43,9 @@
                     class="form-control"
                     formControlName="prodMica"
                     [ngbTypeahead]="busquedaMica"
-                    placeholder="Nombre Mica" />
+                    placeholder="Nombre Mica"
+                    (keyup.enter)="addListaMicas(mica)" #mica
+                  />
                 </p>
               </div>
               <div class="form-group">
@@ -93,11 +95,14 @@
                         (click)="asignaGrad(6)">6</button>
                 <button class="btn btn-sm btn-outline-primary"
                         (click)="asignaGrad(8)">8</button>
-
               </div>
-              <br>
-              <br>
-
+              <ul class="list-group">
+                <li
+                  *ngFor="let mica of formaNotaVenta.get('pedidoMicas').controls"
+                  class="list-group-item">
+                  {{ mica.value }}
+                </li>
+              </ul>
             </ng-template>
           </ngb-panel>
 
