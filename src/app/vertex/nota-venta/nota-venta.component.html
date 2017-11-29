@@ -121,8 +121,8 @@
                               <td>
                                 {{ micaReg.value.cantidad}}
                                 <div class="btn-group ml-1">
-                                  <a class="btn btn-info btn-raised font-medium-5" (click)="decrementa(micaReg)">-</a>
-                                  <a class="btn btn-info btn-raised font-medium-5" (click)="incrementa(micaReg)">+</a>
+                                  <a class="btn btn-info btn-raised font-medium-5" (click)="ajustaCantidad(micaReg, -1)">-</a>
+                                  <a class="btn btn-info btn-raised font-medium-5" (click)="ajustaCantidad(micaReg, +1)">+</a>
                                 </div>
                               </td>
                               <td>{{ micaReg.value.total | currency}}</td>

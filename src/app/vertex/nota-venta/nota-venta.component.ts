@@ -126,13 +126,8 @@ export class NotaVentaComponent implements OnInit {
     return this.formaNotaVenta.get('pedidoMicas') as FormArray;
   }
 
-  decrementa(micaReg: FormControl){
-    micaReg.value.cantidad = micaReg.value.cantidad - 1;
-    micaReg.value.total = micaReg.value.cantidad * micaReg.value.precio;
-  }
-
-  incrementa(micaReg: FormControl){
-    micaReg.value.cantidad = micaReg.value.cantidad + 1;
+  ajustaCantidad(micaReg: FormControl, ajuste: number){
+    micaReg.value.cantidad = micaReg.value.cantidad + ajuste;
     micaReg.value.total = micaReg.value.cantidad * micaReg.value.precio;
   }
 }
