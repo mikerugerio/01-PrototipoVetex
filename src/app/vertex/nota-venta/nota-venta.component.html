@@ -113,10 +113,10 @@
                             </thead>
 
                             <tbody>
-                            <tr *ngFor="let mica of listaMicas.controls">
+                            <tr *ngFor="let micaReg of listaMicas.controls">
                               <td><img class="media-object round-media" src="assets/img/elements/01.png" alt="Generic placeholder image" style="height: 75px;" /></td>
-                              <td>{{ mica.value }}</td>
-                              <td>2.25</td>
+                              <td>{{ micaReg.value.nombre}}</td>
+                              <td>{{ micaReg.value.grad}}</td>
                               <td>$9.97</td>
                               <td>
                                 2

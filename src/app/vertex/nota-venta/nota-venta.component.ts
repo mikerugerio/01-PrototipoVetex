@@ -8,6 +8,11 @@ import 'rxjs/add/operator/map';
 import { UsuariosService } from "./services/usuarios.service";
 import { MicasService } from "./services/micas.service";
 
+interface IMica {
+  nombre: string
+  grad: string
+}
+
 @Component({
   selector: 'nota-venta',
   templateUrl: './nota-venta.component.html',
@@ -15,9 +20,9 @@ import { MicasService } from "./services/micas.service";
 })
 export class NotaVentaComponent implements OnInit {
 
+
   formaNotaVenta: FormGroup;
   titulo = "Nota de Venta";
-  valorMica;
 
   constructor(
     private usuariosService: UsuariosService,
@@ -94,8 +99,15 @@ export class NotaVentaComponent implements OnInit {
   }
 
   addListaMicas(){
-    this.valorMica = this.formaNotaVenta.get('prodMica').value;
-    this.listaMicas.insert(0, new FormControl(this.valorMica))
+
+    var mica: IMica = {
+      nombre: this.formaNotaVenta.get('prodMica').value,
+      grad: this.formaNotaVenta.get('valorMica1').value,
+    };
+
+    console.log(mica);
+
+    this.listaMicas.insert(0, new FormControl(mica))
     this.formaNotaVenta.controls.prodMica.setValue('');
   }
 
