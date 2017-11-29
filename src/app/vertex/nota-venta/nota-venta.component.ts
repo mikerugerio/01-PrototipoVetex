@@ -60,8 +60,6 @@ export class NotaVentaComponent implements OnInit {
       .map(term => term.length < 2 ? []
         : this.micasService.micas.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
 
-
-
   public someKeyboardConfig2: any = {
     behaviour: 'drag',
     connect: true,
@@ -102,7 +100,6 @@ export class NotaVentaComponent implements OnInit {
   }
 
   addListaMicas(){
-
     var mica: IMica = {
       nombre: this.formaNotaVenta.get('prodMica').value,
       grad: this.formaNotaVenta.get('valorMica1').value,
@@ -110,9 +107,6 @@ export class NotaVentaComponent implements OnInit {
       cantidad: 0,
       total: 0,
     };
-
-    console.log(mica);
-
     this.listaMicas.insert(0, new FormControl(mica))
     this.formaNotaVenta.controls.prodMica.setValue('');
   }
