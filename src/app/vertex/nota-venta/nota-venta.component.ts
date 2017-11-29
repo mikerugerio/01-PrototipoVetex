@@ -94,7 +94,7 @@ export class NotaVentaComponent implements OnInit {
   }
 
   addListaMicas(){
-    this.valorMica = this.formaNotaVenta.get('prodMica').value + ' ' +this.mica01.value;
+    this.valorMica = this.formaNotaVenta.get('prodMica').value;
     this.listaMicas.insert(0, new FormControl(this.valorMica))
     this.formaNotaVenta.controls.prodMica.setValue('');
   }
