@@ -23,9 +23,9 @@ interface IMica {
 })
 export class NotaVentaComponent implements OnInit {
 
-
   formaNotaVenta: FormGroup;
   titulo = "Nota de Venta";
+  total : number = 0;
 
   constructor(
     private usuariosService: UsuariosService,
@@ -129,5 +129,6 @@ export class NotaVentaComponent implements OnInit {
   ajustaCantidad(micaReg: FormControl, ajuste: number){
     micaReg.value.cantidad = micaReg.value.cantidad + ajuste;
     micaReg.value.total = micaReg.value.cantidad * micaReg.value.precio;
+    this.total = this.total + (micaReg.value.precio * ajuste);
   }
 }
