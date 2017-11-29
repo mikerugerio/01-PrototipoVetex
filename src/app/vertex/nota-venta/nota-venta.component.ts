@@ -111,8 +111,9 @@ export class NotaVentaComponent implements OnInit {
     this.formaNotaVenta.controls.prodMica.setValue('');
   }
 
-  deleteMica(mica : FormControl){
-    let index = this.listaMicas.controls.indexOf(mica);
+  deleteMica(micaReg : FormControl){
+    this.total = this.total - micaReg.value.total;
+    let index = this.listaMicas.controls.indexOf(micaReg);
     this.listaMicas.removeAt(index);
   }
 
