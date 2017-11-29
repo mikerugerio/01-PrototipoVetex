@@ -11,6 +11,7 @@ import { MicasService } from "./services/micas.service";
 interface IMica {
   nombre: string
   grad: string
+  precio : number
 }
 
 @Component({
@@ -103,6 +104,7 @@ export class NotaVentaComponent implements OnInit {
     var mica: IMica = {
       nombre: this.formaNotaVenta.get('prodMica').value,
       grad: this.formaNotaVenta.get('valorMica1').value,
+      precio: (Math.random() * 100)
     };
 
     console.log(mica);
