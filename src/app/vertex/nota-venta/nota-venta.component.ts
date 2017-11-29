@@ -13,6 +13,7 @@ interface IMica {
   grad: string
   precio : number
   cantidad : number
+  total : number
 }
 
 @Component({
@@ -107,6 +108,7 @@ export class NotaVentaComponent implements OnInit {
       grad: this.formaNotaVenta.get('valorMica1').value,
       precio: (Math.random() * 100),
       cantidad: 0,
+      total: 0,
     };
 
     console.log(mica);
@@ -126,9 +128,11 @@ export class NotaVentaComponent implements OnInit {
 
   decrementa(micaReg: FormControl){
     micaReg.value.cantidad = micaReg.value.cantidad - 1;
+    micaReg.value.total = micaReg.value.cantidad * micaReg.value.precio;
   }
 
   incrementa(micaReg: FormControl){
     micaReg.value.cantidad = micaReg.value.cantidad + 1;
+    micaReg.value.total = micaReg.value.cantidad * micaReg.value.precio;
   }
 }
