@@ -119,13 +119,13 @@
                               <td>{{ micaReg.value.grad}}</td>
                               <td>{{ micaReg.value.precio | currency}}</td>
                               <td>
-                                2
+                                {{ micaReg.value.cantidad}}
                                 <div class="btn-group ml-1">
-                                  <a class="btn btn-info btn-raised font-medium-5" href="javascript:void(0)">-</a>
-                                  <a class="btn btn-info btn-raised font-medium-5" href="javascript:void(0)">+</a>
+                                  <a class="btn btn-info btn-raised font-medium-5" (click)="decrementa(micaReg)">-</a>
+                                  <a class="btn btn-info btn-raised font-medium-5" (click)="incrementa(micaReg)">+</a>
                                 </div>
                               </td>
-                              <td>$19.94</td>
+                              <td>0</td>
                               <td>
                                 <a class="danger" data-original-title="" title="">
                                   <i class="ft-trash font-medium-3"></i>

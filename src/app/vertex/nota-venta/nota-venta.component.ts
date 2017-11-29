@@ -12,6 +12,7 @@ interface IMica {
   nombre: string
   grad: string
   precio : number
+  cantidad : number
 }
 
 @Component({
@@ -104,7 +105,8 @@ export class NotaVentaComponent implements OnInit {
     var mica: IMica = {
       nombre: this.formaNotaVenta.get('prodMica').value,
       grad: this.formaNotaVenta.get('valorMica1').value,
-      precio: (Math.random() * 100)
+      precio: (Math.random() * 100),
+      cantidad: 0,
     };
 
     console.log(mica);
@@ -120,5 +122,13 @@ export class NotaVentaComponent implements OnInit {
 
   get listaMicas(){
     return this.formaNotaVenta.get('pedidoMicas') as FormArray;
+  }
+
+  decrementa(micaReg: FormControl){
+    micaReg.value.cantidad = micaReg.value.cantidad - 1;
+  }
+
+  incrementa(micaReg: FormControl){
+    micaReg.value.cantidad = micaReg.value.cantidad + 1;
   }
 }
