@@ -41,6 +41,7 @@ export class NotaVentaComponent implements OnInit {
       'prodMica': new FormControl(),
       'valorMica1': new FormControl([ 5 ]),
       'pedidoMicas' : new FormArray([]),
+      'pago': new FormControl(),
     });
   }
 
@@ -137,7 +138,7 @@ export class NotaVentaComponent implements OnInit {
     modalRef.componentInstance.cliente = this.formaNotaVenta.get('cliente').value;
     modalRef.componentInstance.fechaCompra = this.formaNotaVenta.get('fechaCompra').value;
     modalRef.componentInstance.total = this.total;
-
+    modalRef.componentInstance.pago = this.formaNotaVenta.get('pago').value;
   }
 }
 
@@ -150,5 +151,6 @@ export class NgbdModalContent {
   @Input() cliente;
   @Input() fechaCompra;
   @Input() total;
+  @Input() pago;
   constructor(public activeModal: NgbActiveModal) { }
 }

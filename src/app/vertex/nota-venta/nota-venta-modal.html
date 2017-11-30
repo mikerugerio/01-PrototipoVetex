@@ -128,11 +128,11 @@
                     </tr>
                     <tr>
                       <td>Pago Realizado</td>
-                      <td class="pink text-right">(-) $ 4,688.00</td>
+                      <td class="pink text-right">(-) {{pago | currency}}</td>
                     </tr>
                     <tr class="bg-grey bg-lighten-4">
                       <td class="text-bold-800">Saldo</td>
-                      <td class="text-bold-800 text-right">$ 12,000.00</td>
+                      <td class="text-bold-800 text-right">{{ total-pago | currency }}</td>
                     </tr>
                     </tbody>
                   </table>
