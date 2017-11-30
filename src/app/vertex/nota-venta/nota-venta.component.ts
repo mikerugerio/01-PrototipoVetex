@@ -18,6 +18,13 @@ interface IMica {
   total : number
 }
 
+interface IArmazon {
+  nombre: string
+  precio : number
+  cantidad : number
+  total : number
+}
+
 @Component({
   selector: 'nota-venta',
   templateUrl: './nota-venta.component.html',
@@ -44,6 +51,7 @@ export class NotaVentaComponent implements OnInit {
       'valorMica1': new FormControl([ 5 ]),
       'pedidoMicas' : new FormArray([]),
       'prodArmazon': new FormControl(),
+      'pedidoArmazones' : new FormArray([]),
       'pago': new FormControl(),
     });
   }
@@ -140,6 +148,20 @@ export class NotaVentaComponent implements OnInit {
     this.total = this.total + (micaReg.value.precio * ajuste);
   }
 
+  addListaArmazones(){
+    var armazon: IArmazon = {
+      nombre: this.formaNotaVenta.get('prodArmazon').value,
+      precio: (Math.random() * 100),
+      cantidad: 0,
+      total: 0,
+    };
+    this.listaArmazones.insert(0, new FormControl(armazon))
+    this.formaNotaVenta.controls.prodArmazon.setValue('');
+  }
+
+  get listaArmazones(){
+    return this.formaNotaVenta.get('pedidoArmazones') as FormArray;
+  }
   openContent() {
     const modalRef = this.modalService.open(NgbdModalContent, {
       size: 'lg'
