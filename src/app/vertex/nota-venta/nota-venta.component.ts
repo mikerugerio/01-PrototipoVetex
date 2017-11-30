@@ -133,9 +133,9 @@ export class NotaVentaComponent implements OnInit {
     const modalRef = this.modalService.open(NgbdModalContent, {
       size: 'lg'
     });
-
-    modalRef.componentInstance.cliente = this.formaNotaVenta.get('cliente').value;
     modalRef.componentInstance.listaMicas = this.listaMicas;
+    modalRef.componentInstance.cliente = this.formaNotaVenta.get('cliente').value;
+    modalRef.componentInstance.fechaCompra = this.formaNotaVenta.get('fechaCompra').value;
   }
 }
 
@@ -144,7 +144,8 @@ export class NotaVentaComponent implements OnInit {
   templateUrl: './nota-venta-modal.html',
 })
 export class NgbdModalContent {
-  @Input() cliente;
   @Input() listaMicas;
+  @Input() cliente;
+  @Input() fechaCompra;
   constructor(public activeModal: NgbActiveModal) { }
 }
