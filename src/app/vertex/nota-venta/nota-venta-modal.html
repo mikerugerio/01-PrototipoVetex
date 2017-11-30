@@ -67,8 +67,8 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr *ngFor="let micaReg of listaMicas.controls">
-                    <th scope="row"></th>
+                  <tr *ngFor="let micaReg of listaMicas.controls; let i = index;">
+                    <th scope="row">{{i+1}}</th>
                     <td>
                       <p>{{ micaReg.value.nombre}}</p>
                       <p class="text-muted">{{ micaReg.value.grad}}</p>
@@ -77,8 +77,8 @@
                     <td class="text-right">{{ micaReg.value.cantidad}}</td>
                     <td class="text-right">{{ micaReg.value.total | currency}}</td>
                   </tr>
-                  <tr *ngFor="let armReg of listaArmazones.controls">
-                    <th scope="row"></th>
+                  <tr *ngFor="let armReg of listaArmazones.controls; let i = index;">
+                    <th scope="row">{{listaMicas.length + i + 1}}</th>
                     <td>
                       <p>{{ armReg.value.nombre}}</p>
                       <p class="text-muted"></p>
