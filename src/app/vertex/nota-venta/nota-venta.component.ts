@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 
 import { UsuariosService } from "./services/usuarios.service";
 import { MicasService } from "./services/micas.service";
+import { ArmazonesService } from "./services/armazones.service";
 
 interface IMica {
   nombre: string
@@ -31,6 +32,7 @@ export class NotaVentaComponent implements OnInit {
   constructor(
     private usuariosService: UsuariosService,
     private micasService: MicasService,
+    private armazonesService: ArmazonesService,
     private modalService: NgbModal,
   ) { }
 
@@ -41,6 +43,7 @@ export class NotaVentaComponent implements OnInit {
       'prodMica': new FormControl(),
       'valorMica1': new FormControl([ 5 ]),
       'pedidoMicas' : new FormArray([]),
+      'prodArmazon': new FormControl(),
       'pago': new FormControl(),
     });
   }
@@ -62,6 +65,13 @@ export class NotaVentaComponent implements OnInit {
       .distinctUntilChanged()
       .map(term => term.length < 2 ? []
         : this.micasService.micas.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
+
+  busquedaArmazon = (text$: Observable<string>) =>
+    text$
+      .debounceTime(200)
+      .distinctUntilChanged()
+      .map(term => term.length < 2 ? []
+        : this.armazonesService.armazones.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
 
   public someKeyboardConfig2: any = {
     behaviour: 'drag',

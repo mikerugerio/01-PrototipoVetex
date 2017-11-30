@@ -16,6 +16,7 @@ import { FmReactiveComponent } from "app/prototipo/formas/reactive.component";
 import { ProductFilterPipe } from 'app/prototipo/listDependendientes/product-filter.pipe';
 import { UsuariosService } from "../../vertex/nota-venta/services/usuarios.service";
 import { MicasService } from "../../vertex/nota-venta/services/micas.service";
+import { ArmazonesService } from "../../vertex/nota-venta/services/armazones.service";
 
 @NgModule({
     imports: [
@@ -38,6 +39,7 @@ import { MicasService } from "../../vertex/nota-venta/services/micas.service";
     providers: [
       UsuariosService,
       MicasService,
+      ArmazonesService,
     ],
     entryComponents: [
       NgbdModalContent
