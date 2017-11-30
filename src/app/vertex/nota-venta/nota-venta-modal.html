@@ -39,7 +39,7 @@
             </div>
             <div class="col-6 text-left">
               <ul class="px-0 list-unstyled">
-                <li class="text-bold-800">Mr. Bret Lezama</li>
+                <li class="text-bold-800">{{cliente}}</li>
                 <li>4879 Westfall Avenue,</li>
                 <li>Albuquerque,</li>
                 <li>New Mexico-87102.</li>
@@ -68,7 +68,7 @@
                   </thead>
                   <tbody>
                   <tr *ngFor="let micaReg of listaMicas.controls">
-                    <th scope="row">{{ }}</th>
+                    <th scope="row"></th>
                     <td>
                       <p>{{ micaReg.value.nombre}}</p>
                       <p class="text-muted">{{ micaReg.value.grad}}</p>

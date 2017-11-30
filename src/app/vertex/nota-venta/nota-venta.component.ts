@@ -134,7 +134,7 @@ export class NotaVentaComponent implements OnInit {
       size: 'lg'
     });
 
-    modalRef.componentInstance.nombre = 'Mundo';
+    modalRef.componentInstance.cliente = this.formaNotaVenta.get('cliente').value;
     modalRef.componentInstance.listaMicas = this.listaMicas;
   }
 }
@@ -144,7 +144,7 @@ export class NotaVentaComponent implements OnInit {
   templateUrl: './nota-venta-modal.html',
 })
 export class NgbdModalContent {
-  @Input() nombre;
+  @Input() cliente;
   @Input() listaMicas;
   constructor(public activeModal: NgbActiveModal) { }
 }
