@@ -27,7 +27,23 @@ interface IMica {
       </button>
     </div>
     <div class="modal-body">
-      <p>Hello, {{name}}!</p>
+      <p>Hello, {{nombre}}!</p>
+
+      <tr *ngFor="let micaReg of listaMicas.controls">
+        <td></td>
+        <td>{{ micaReg.value.nombre}}</td>
+        <td>{{ micaReg.value.grad}}</td>
+        <td>{{ micaReg.value.precio | currency}}</td>
+        <td>
+          {{ micaReg.value.cantidad}}
+        </td>
+        <td>{{ micaReg.value.total | currency}}</td>
+        <td>
+          
+        </td>
+      </tr>
+      
+      
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary btn-raised" (click)="activeModal.close('Close click')">Close</button>
@@ -36,7 +52,8 @@ interface IMica {
 })
 
 export class NgbdModalContent {
-  @Input() name;
+  @Input() nombre;
+  @Input() listaMicas;
   constructor(public activeModal: NgbActiveModal) { }
 }
 
@@ -154,7 +171,8 @@ export class NotaVentaComponent implements OnInit {
 
   openContent() {
     const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.name = 'World';
+    modalRef.componentInstance.nombre = 'Mundo';
+    modalRef.componentInstance.listaMicas = this.listaMicas;
   }
 
 }
