@@ -60,42 +60,22 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Item &amp; Description</th>
-                    <th class="text-right">Rate</th>
-                    <th class="text-right">Hours</th>
-                    <th class="text-right">Amount</th>
+                    <th>Artículo</th>
+                    <th class="text-right">Precio</th>
+                    <th class="text-right">Cantidad</th>
+                    <th class="text-right">Total</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <th scope="row">1</th>
+                  <tr *ngFor="let micaReg of listaMicas.controls">
+                    <th scope="row">{{ }}</th>
                     <td>
-                      <p>Create PSD for mobile APP</p>
-                      <p class="text-muted">Simply dummy text of the printing and typesetting industry.</p>
+                      <p>{{ micaReg.value.nombre}}</p>
+                      <p class="text-muted">{{ micaReg.value.grad}}</p>
                     </td>
-                    <td class="text-right">$ 20.00/hr</td>
-                    <td class="text-right">120</td>
-                    <td class="text-right">$ 2400.00</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>
-                      <p>iOS Application Development</p>
-                      <p class="text-muted">Pellentesque maximus feugiat lorem at cursus.</p>
-                    </td>
-                    <td class="text-right">$ 25.00/hr</td>
-                    <td class="text-right">260</td>
-                    <td class="text-right">$ 6500.00</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>
-                      <p>WordPress Template Development</p>
-                      <p class="text-muted">Vestibulum euismod est eu elit convallis.</p>
-                    </td>
-                    <td class="text-right">$ 20.00/hr</td>
-                    <td class="text-right">300</td>
-                    <td class="text-right">$ 6000.00</td>
+                    <td class="text-right">{{ micaReg.value.precio | currency}}</td>
+                    <td class="text-right">{{ micaReg.value.cantidad}}</td>
+                    <td class="text-right">{{ micaReg.value.total | currency}}</td>
                   </tr>
                   </tbody>
                 </table>
