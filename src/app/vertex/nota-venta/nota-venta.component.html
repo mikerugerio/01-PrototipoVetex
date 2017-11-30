@@ -177,6 +177,65 @@
                 class="btn btn-raised gradient-mint white btn-round">Añadir Armazón
               </button>
 
+              <!--Shopping cart starts-->
+              <section id="shopping-cart2">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title">Armazones Vendidos</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-block">
+                          <table class="table table-responsive text-center">
+                            <thead>
+                            <tr>
+                              <th>Imagen</th>
+                              <th>Nombre</th>
+                              <th>Precio</th>
+                              <th>Cantidad</th>
+                              <th>Total</th>
+                              <th>Borrar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let armReg of listaArmazones.controls">
+                              <td><img class="media-object round-media" src="assets/img/elements/01.png" alt="Generic placeholder image" style="height: 75px;" /></td>
+                              <td>{{ armReg.value.nombre}}</td>
+                              <td>{{ armReg.value.precio | currency}}</td>
+                              <td>
+                                {{ armReg.value.cantidad}}
+                                <div class="btn-group ml-1">
+                                  <a class="btn btn-info btn-raised font-medium-5" (click)="ajustaCantidad(armReg, -1)">-</a>
+                                  <a class="btn btn-info btn-raised font-medium-5" (click)="ajustaCantidad(armReg, +1)">+</a>
+                                </div>
+                              </td>
+                              <td>{{ armReg.value.total | currency}}</td>
+                              <td>
+                                <a class="danger" data-original-title="" title="">
+                                  <i class="ft-trash font-medium-3" (click)="deleteArmazon(armReg)"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td><b>Total</b></td>
+                              <td><b>{{total | currency}}</b></td>
+                              <td></td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!--Shopping cart ends-->
+
+
             </ng-template>
           </ngb-panel>
           <ngb-panel id="3">

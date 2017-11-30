@@ -159,6 +159,12 @@ export class NotaVentaComponent implements OnInit {
     this.formaNotaVenta.controls.prodArmazon.setValue('');
   }
 
+  deleteArmazon(armReg : FormControl){
+    this.total = this.total - armReg.value.total;
+    let index = this.listaArmazones.controls.indexOf(armReg);
+    this.listaArmazones.removeAt(index);
+  }
+
   get listaArmazones(){
     return this.formaNotaVenta.get('pedidoArmazones') as FormArray;
   }
