@@ -27,7 +27,7 @@
               <p class="pb-3"># INV-001001</p>
               <ul class="px-0 list-unstyled">
                 <li>Total</li>
-                <li class="lead text-bold-800">$ 12,000.00</li>
+                <li class="lead text-bold-800">{{total | currency}}</li>
               </ul>
             </div>
           </div>
@@ -90,7 +90,7 @@
                       <tbody>
                       <tr>
                         <td>Banco:</td>
-                        <td class="text-right">BBVA BANCOMER</td>
+                        <td class="text-right">BBVA Bancomer</td>
                       </tr>
                       <tr>
                         <td>A Nombre:</td>
@@ -116,15 +116,15 @@
                     <tbody>
                     <tr>
                       <td>Sub Total</td>
-                      <td class="text-right">$ 14,900.00</td>
+                      <td class="text-right">{{ (total-total*.16) | currency}}</td>
                     </tr>
                     <tr>
                       <td>Iva (16%)</td>
-                      <td class="text-right">$ 1,788.00</td>
+                      <td class="text-right">{{ (total*.16) | currency}}</td>
                     </tr>
                     <tr>
                       <td class="text-bold-800">Total</td>
-                      <td class="text-bold-800 text-right"> $ 16,688.00</td>
+                      <td class="text-bold-800 text-right"> {{total | currency}}</td>
                     </tr>
                     <tr>
                       <td>Pago Realizado</td>

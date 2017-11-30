@@ -136,6 +136,8 @@ export class NotaVentaComponent implements OnInit {
     modalRef.componentInstance.listaMicas = this.listaMicas;
     modalRef.componentInstance.cliente = this.formaNotaVenta.get('cliente').value;
     modalRef.componentInstance.fechaCompra = this.formaNotaVenta.get('fechaCompra').value;
+    modalRef.componentInstance.total = this.total;
+
   }
 }
 
@@ -147,5 +149,6 @@ export class NgbdModalContent {
   @Input() listaMicas;
   @Input() cliente;
   @Input() fechaCompra;
+  @Input() total;
   constructor(public activeModal: NgbActiveModal) { }
 }
