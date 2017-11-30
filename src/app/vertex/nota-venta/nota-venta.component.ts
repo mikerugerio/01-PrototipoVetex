@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from "@angular/forms";
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -17,6 +18,29 @@ interface IMica {
 }
 
 @Component({
+  selector: 'ngbd-modal-content',
+  template: `
+    <div class="modal-header">
+      <h4 class="modal-title">Hi there!</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Hello, {{name}}!</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary btn-raised" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+  `
+})
+
+export class NgbdModalContent {
+  @Input() name;
+  constructor(public activeModal: NgbActiveModal) { }
+}
+
+@Component({
   selector: 'nota-venta',
   templateUrl: './nota-venta.component.html',
   styleUrls: ['./nota-venta.component.scss'],
@@ -29,7 +53,8 @@ export class NotaVentaComponent implements OnInit {
 
   constructor(
     private usuariosService: UsuariosService,
-    private micasService: MicasService
+    private micasService: MicasService,
+    private modalService: NgbModal,
   ) { }
 
   ngOnInit() {
@@ -126,4 +151,10 @@ export class NotaVentaComponent implements OnInit {
     micaReg.value.total = micaReg.value.cantidad * micaReg.value.precio;
     this.total = this.total + (micaReg.value.precio * ajuste);
   }
+
+  openContent() {
+    const modalRef = this.modalService.open(NgbdModalContent);
+    modalRef.componentInstance.name = 'World';
+  }
+
 }
