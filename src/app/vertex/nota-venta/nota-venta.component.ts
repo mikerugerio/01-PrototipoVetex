@@ -18,46 +18,6 @@ interface IMica {
 }
 
 @Component({
-  selector: 'ngbd-modal-content',
-  template: `
-    <div class="modal-header">
-      <h4 class="modal-title">Hi there!</h4>
-      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>Hello, {{nombre}}!</p>
-
-      <tr *ngFor="let micaReg of listaMicas.controls">
-        <td></td>
-        <td>{{ micaReg.value.nombre}}</td>
-        <td>{{ micaReg.value.grad}}</td>
-        <td>{{ micaReg.value.precio | currency}}</td>
-        <td>
-          {{ micaReg.value.cantidad}}
-        </td>
-        <td>{{ micaReg.value.total | currency}}</td>
-        <td>
-          
-        </td>
-      </tr>
-      
-      
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary btn-raised" (click)="activeModal.close('Close click')">Close</button>
-    </div>
-  `
-})
-
-export class NgbdModalContent {
-  @Input() nombre;
-  @Input() listaMicas;
-  constructor(public activeModal: NgbActiveModal) { }
-}
-
-@Component({
   selector: 'nota-venta',
   templateUrl: './nota-venta.component.html',
   styleUrls: ['./nota-venta.component.scss'],
@@ -174,5 +134,14 @@ export class NotaVentaComponent implements OnInit {
     modalRef.componentInstance.nombre = 'Mundo';
     modalRef.componentInstance.listaMicas = this.listaMicas;
   }
+}
 
+@Component({
+  selector: 'ngbd-modal-content',
+  templateUrl: './nota-venta-modal.html',
+})
+export class NgbdModalContent {
+  @Input() nombre;
+  @Input() listaMicas;
+  constructor(public activeModal: NgbActiveModal) { }
 }
