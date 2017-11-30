@@ -130,7 +130,10 @@ export class NotaVentaComponent implements OnInit {
   }
 
   openContent() {
-    const modalRef = this.modalService.open(NgbdModalContent);
+    const modalRef = this.modalService.open(NgbdModalContent, {
+      size: 'lg'
+    });
+
     modalRef.componentInstance.nombre = 'Mundo';
     modalRef.componentInstance.listaMicas = this.listaMicas;
   }
