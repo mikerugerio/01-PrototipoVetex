@@ -77,6 +77,16 @@
                     <td class="text-right">{{ micaReg.value.cantidad}}</td>
                     <td class="text-right">{{ micaReg.value.total | currency}}</td>
                   </tr>
+                  <tr *ngFor="let armReg of listaArmazones.controls">
+                    <th scope="row"></th>
+                    <td>
+                      <p>{{ armReg.value.nombre}}</p>
+                      <p class="text-muted"></p>
+                    </td>
+                    <td class="text-right">{{ armReg.value.precio | currency}}</td>
+                    <td class="text-right">{{ armReg.value.cantidad}}</td>
+                    <td class="text-right">{{ armReg.value.total | currency}}</td>
+                  </tr>
                   </tbody>
                 </table>
               </div>

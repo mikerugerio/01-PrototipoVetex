@@ -173,6 +173,7 @@ export class NotaVentaComponent implements OnInit {
       size: 'lg'
     });
     modalRef.componentInstance.listaMicas = this.listaMicas;
+    modalRef.componentInstance.listaArmazones = this.listaArmazones;
     modalRef.componentInstance.cliente = this.formaNotaVenta.get('cliente').value;
     modalRef.componentInstance.fechaCompra = this.formaNotaVenta.get('fechaCompra').value;
     modalRef.componentInstance.total = this.total;
@@ -186,6 +187,7 @@ export class NotaVentaComponent implements OnInit {
 })
 export class NgbdModalContent {
   @Input() listaMicas;
+  @Input() listaArmazones;
   @Input() cliente;
   @Input() fechaCompra;
   @Input() total;
