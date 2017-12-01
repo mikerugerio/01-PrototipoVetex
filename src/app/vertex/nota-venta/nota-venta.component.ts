@@ -25,6 +25,13 @@ interface IArmazon {
   total : number
 }
 
+interface IProducto {
+  nombre: string
+  precio : number
+  cantidad : number
+  total : number
+}
+
 @Component({
   selector: 'nota-venta',
   templateUrl: './nota-venta.component.html',
@@ -52,6 +59,8 @@ export class NotaVentaComponent implements OnInit {
       'pedidoMicas' : new FormArray([]),
       'prodArmazon': new FormControl(),
       'pedidoArmazones' : new FormArray([]),
+      'prodOtro': new FormControl(),
+      'pedidoProductos' : new FormArray([]),
       'pago': new FormControl(),
     });
   }
@@ -75,6 +84,13 @@ export class NotaVentaComponent implements OnInit {
         : this.micasService.micas.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
 
   busquedaArmazon = (text$: Observable<string>) =>
+    text$
+      .debounceTime(200)
+      .distinctUntilChanged()
+      .map(term => term.length < 2 ? []
+        : this.armazonesService.armazones.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
+
+  busquedaProducto = (text$: Observable<string>) =>
     text$
       .debounceTime(200)
       .distinctUntilChanged()
@@ -168,6 +184,28 @@ export class NotaVentaComponent implements OnInit {
   get listaArmazones(){
     return this.formaNotaVenta.get('pedidoArmazones') as FormArray;
   }
+
+  addListaProductos(){
+    var producto: IProducto = {
+      nombre: this.formaNotaVenta.get('prodOtro').value,
+      precio: (Math.random() * 100),
+      cantidad: 0,
+      total: 0,
+    };
+    this.listaProductos.insert(0, new FormControl(producto))
+    this.formaNotaVenta.controls.prodOtro.setValue('');
+  }
+
+  deleteProducto(prodReg : FormControl){
+    this.total = this.total - prodReg.value.total;
+    let index = this.listaProductos.controls.indexOf(prodReg);
+    this.listaProductos.removeAt(index);
+  }
+
+  get listaProductos(){
+    return this.formaNotaVenta.get('pedidoProductos') as FormArray;
+  }
+
   openContent() {
     const modalRef = this.modalService.open(NgbdModalContent, {
       size: 'lg'

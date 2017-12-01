@@ -17,7 +17,7 @@
 
         <div class="form-group">
           <div class="input-group">
-            <input class="form-control col-md-3"
+            <input class="form-control col-md-4"
                    placeholder="Fecha (yyyy-mm-dd)"
                    formControlName="fechaCompra"
                    ngbDatepicker #d2="ngbDatepicker">
@@ -235,20 +235,90 @@
               </section>
               <!--Shopping cart ends-->
 
-
             </ng-template>
           </ngb-panel>
           <ngb-panel id="3">
             <ng-template ngbPanelTitle>
-              <span>&#9830; Producto <b>Otros</b> </span>
+              <span>&#9830; Otros <b>Productos</b> </span>
             </ng-template>
             <ng-template ngbPanelContent>
-              <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-                helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                heard of them accusamus labore sustainable VHS.</p>
+
+              <div class="form-group">
+                <p>
+                  <input
+                    type="text"
+                    id="prodOtro"
+                    class="form-control"
+                    formControlName="prodOtro"
+                    [ngbTypeahead]="busquedaArmazon"
+                    placeholder="Producto"
+                  />
+                </p>
+              </div>
+
+              <button
+                (click)="addListaProductos()"
+                class="btn btn-raised gradient-mint white btn-round">Añadir Producto
+              </button>
+
+              <!--Shopping cart starts-->
+              <section id="shopping-cart3">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title">Productos Vendidos</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-block">
+                          <table class="table table-responsive text-center">
+                            <thead>
+                            <tr>
+                              <th>Imagen</th>
+                              <th>Nombre</th>
+                              <th>Precio</th>
+                              <th>Cantidad</th>
+                              <th>Total</th>
+                              <th>Borrar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let prodReg of listaProductos.controls">
+                              <td><img class="media-object round-media" src="assets/img/elements/01.png" alt="Generic placeholder image" style="height: 75px;" /></td>
+                              <td>{{ prodReg.value.nombre}}</td>
+                              <td>{{ prodReg.value.precio | currency}}</td>
+                              <td>
+                                {{ prodReg.value.cantidad}}
+                                <div class="btn-group ml-1">
+                                  <a class="btn btn-info btn-raised font-medium-5" (click)="ajustaCantidad(prodReg, -1)">-</a>
+                                  <a class="btn btn-info btn-raised font-medium-5" (click)="ajustaCantidad(prodReg, +1)">+</a>
+                                </div>
+                              </td>
+                              <td>{{ prodReg.value.total | currency}}</td>
+                              <td>
+                                <a class="danger" data-original-title="" title="">
+                                  <i class="ft-trash font-medium-3" (click)="deleteProducto(prodReg)"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td><b>Total</b></td>
+                              <td><b>{{total | currency}}</b></td>
+                              <td></td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!--Shopping cart ends-->
+
             </ng-template>
           </ngb-panel>
         </ngb-accordion>
