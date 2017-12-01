@@ -87,6 +87,16 @@
                     <td class="text-right">{{ armReg.value.cantidad}}</td>
                     <td class="text-right">{{ armReg.value.total | currency}}</td>
                   </tr>
+                  <tr *ngFor="let proReg of listaProductos.controls; let i = index;">
+                    <th scope="row">{{listaMicas.length + listaArmazones.length + i + 1}}</th>
+                    <td>
+                      <p>{{ proReg.value.nombre}}</p>
+                      <p class="text-muted"></p>
+                    </td>
+                    <td class="text-right">{{ proReg.value.precio | currency}}</td>
+                    <td class="text-right">{{ proReg.value.cantidad}}</td>
+                    <td class="text-right">{{ proReg.value.total | currency}}</td>
+                  </tr>
                   </tbody>
                 </table>
               </div>

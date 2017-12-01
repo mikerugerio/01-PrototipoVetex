@@ -17,6 +17,7 @@ import { ProductFilterPipe } from 'app/prototipo/listDependendientes/product-fil
 import { UsuariosService } from "../../vertex/nota-venta/services/usuarios.service";
 import { MicasService } from "../../vertex/nota-venta/services/micas.service";
 import { ArmazonesService } from "../../vertex/nota-venta/services/armazones.service";
+import { OtrosProdService } from "../../vertex/nota-venta/services/otrosProd.service";
 
 @NgModule({
     imports: [
@@ -40,6 +41,7 @@ import { ArmazonesService } from "../../vertex/nota-venta/services/armazones.ser
       UsuariosService,
       MicasService,
       ArmazonesService,
+      OtrosProdService,
     ],
     entryComponents: [
       NgbdModalContent

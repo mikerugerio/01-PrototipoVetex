@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import { UsuariosService } from "./services/usuarios.service";
 import { MicasService } from "./services/micas.service";
 import { ArmazonesService } from "./services/armazones.service";
+import { OtrosProdService } from "./services/otrosProd.service";
 
 interface IMica {
   nombre: string
@@ -47,6 +48,7 @@ export class NotaVentaComponent implements OnInit {
     private usuariosService: UsuariosService,
     private micasService: MicasService,
     private armazonesService: ArmazonesService,
+    private otrosProdService :OtrosProdService,
     private modalService: NgbModal,
   ) { }
 
@@ -95,7 +97,7 @@ export class NotaVentaComponent implements OnInit {
       .debounceTime(200)
       .distinctUntilChanged()
       .map(term => term.length < 2 ? []
-        : this.armazonesService.armazones.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
+        : this.otrosProdService.otros.filter(v => new RegExp(term, 'gi').test(v)).splice(0, 15));
 
   public someKeyboardConfig2: any = {
     behaviour: 'drag',
@@ -212,6 +214,7 @@ export class NotaVentaComponent implements OnInit {
     });
     modalRef.componentInstance.listaMicas = this.listaMicas;
     modalRef.componentInstance.listaArmazones = this.listaArmazones;
+    modalRef.componentInstance.listaProductos = this.listaProductos;
     modalRef.componentInstance.cliente = this.formaNotaVenta.get('cliente').value;
     modalRef.componentInstance.fechaCompra = this.formaNotaVenta.get('fechaCompra').value;
     modalRef.componentInstance.total = this.total;
@@ -226,6 +229,7 @@ export class NotaVentaComponent implements OnInit {
 export class NgbdModalContent {
   @Input() listaMicas;
   @Input() listaArmazones;
+  @Input() listaProductos;
   @Input() cliente;
   @Input() fechaCompra;
   @Input() total;
