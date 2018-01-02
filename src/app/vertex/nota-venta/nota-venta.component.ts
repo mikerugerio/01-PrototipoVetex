@@ -6,6 +6,9 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 
+import { environment } from 'environments/environment';
+import { HttpClient} from '@angular/common/http';
+
 import { UsuariosService } from "./services/usuarios.service";
 import { MicasService } from "./services/micas.service";
 import { ArmazonesService } from "./services/armazones.service";
@@ -33,6 +36,11 @@ interface IProducto {
   total : number
 }
 
+class NotaVenta {
+  cliente: string
+  pago: number
+}
+
 @Component({
   selector: 'nota-venta',
   templateUrl: './nota-venta.component.html',
@@ -43,6 +51,9 @@ export class NotaVentaComponent implements OnInit {
   formaNotaVenta: FormGroup;
   titulo = "Nota de Venta";
   total : number = 0;
+  notaVenta : NotaVenta;
+  private urlServidor:string;
+
 
   constructor(
     private usuariosService: UsuariosService,
@@ -50,7 +61,10 @@ export class NotaVentaComponent implements OnInit {
     private armazonesService: ArmazonesService,
     private otrosProdService :OtrosProdService,
     private modalService: NgbModal,
-  ) { }
+    private http: HttpClient,
+  ) { 
+      this.urlServidor = environment.serverUrl + 'notaVenta';
+  }
 
   ngOnInit() {
     this.formaNotaVenta = new FormGroup({
@@ -68,7 +82,17 @@ export class NotaVentaComponent implements OnInit {
   }
 
   onAceptar(){
-    console.log(this.formaNotaVenta.value);
+    
+    this.notaVenta = new NotaVenta()
+    this.notaVenta.cliente = this.formaNotaVenta.get('cliente').value;
+    this.notaVenta.pago = this.formaNotaVenta.get('pago').value;
+    console.log(this.notaVenta);
+
+    this.http.post<NotaVenta>(this.urlServidor, this.notaVenta)
+            .subscribe(response => {
+                this.notaVenta = response;
+            });
+
   }
 
   busquedaCliente = (text$: Observable<string>) =>
