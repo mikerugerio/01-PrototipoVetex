@@ -39,6 +39,7 @@ interface IProducto {
 class NotaVenta {
   cliente: string
   pago: number
+  fechaVenta: Date
 }
 
 @Component({
@@ -54,6 +55,11 @@ export class NotaVentaComponent implements OnInit {
   notaVenta : NotaVenta;
   private urlServidor:string;
 
+  year : string;
+  month: string;
+  day: string;
+  dateString: string;
+  fechaVenta: Date;
 
   constructor(
     private usuariosService: UsuariosService,
@@ -86,6 +92,20 @@ export class NotaVentaComponent implements OnInit {
     this.notaVenta = new NotaVenta()
     this.notaVenta.cliente = this.formaNotaVenta.get('cliente').value;
     this.notaVenta.pago = this.formaNotaVenta.get('pago').value;
+
+    this.year  = this.formaNotaVenta.get('fechaCompra').value.year;
+    this.month = this.formaNotaVenta.get('fechaCompra').value.month;
+    this.day = this.formaNotaVenta.get('fechaCompra').value.day;
+
+    if (this.month.toString().length == 1){
+      this.month = `0${this.month}`
+    }
+
+    this.dateString = `${this.year}-${this.month}-${this.day}T00:00:00` 
+    this.fechaVenta = new Date(this.dateString);
+
+    this.notaVenta.fechaVenta = this.fechaVenta
+
     console.log(this.notaVenta);
 
     this.http.post<NotaVenta>(this.urlServidor, this.notaVenta)
