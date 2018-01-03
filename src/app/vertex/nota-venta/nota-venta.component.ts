@@ -40,6 +40,7 @@ class NotaVenta {
   cliente: string
   pago: number
   fechaVenta: Date
+  listArmazones: IArmazon[]
 }
 
 @Component({
@@ -105,6 +106,9 @@ export class NotaVentaComponent implements OnInit {
     this.fechaVenta = new Date(this.dateString);
 
     this.notaVenta.fechaVenta = this.fechaVenta
+
+    //LISTA ARMAZONES
+    this.notaVenta.listArmazones = this.formaNotaVenta.get('pedidoArmazones').value;
 
     console.log(this.notaVenta);
 
