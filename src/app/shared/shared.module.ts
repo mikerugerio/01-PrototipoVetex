@@ -11,6 +11,8 @@ import { ToggleFullscreenDirective } from "./directives/toggle-fullscreen.direct
 
 import { CustomizerComponent } from './customizer/customizer.component';
 
+import { AuthService } from "./services/auth.service";
+
 @NgModule({
     exports: [
         CommonModule,
@@ -33,6 +35,9 @@ import { CustomizerComponent } from './customizer/customizer.component';
         SidebarComponent,
         ToggleFullscreenDirective,
         CustomizerComponent
-    ]
+    ],
+    providers: [
+      AuthService,
+    ],
 })
 export class SharedModule { }
