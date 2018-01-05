@@ -12,6 +12,7 @@ import { ToggleFullscreenDirective } from "./directives/toggle-fullscreen.direct
 import { CustomizerComponent } from './customizer/customizer.component';
 
 import { AuthService } from "./services/auth.service";
+import { AuthGuardService } from "./services/auth-guard.service";
 
 @NgModule({
     exports: [
@@ -38,6 +39,7 @@ import { AuthService } from "./services/auth.service";
     ],
     providers: [
       AuthService,
+      AuthGuardService,
     ],
 })
 export class SharedModule { }

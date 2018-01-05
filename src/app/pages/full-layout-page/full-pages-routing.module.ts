@@ -6,6 +6,8 @@ import { FullLayoutPageComponent } from 'app/pages/full-layout-page/full-layout-
 import { NotaVentaComponent } from 'app/vertex/nota-venta/nota-venta.component';
 import { BookComponent} from "app/prototipo/book/book.component";
 import { FmReactiveComponent } from "app/prototipo/formas/reactive.component";
+import { AuthGuardService } from "../../shared/services/auth-guard.service";
+
 
 const routes: Routes = [
   {
@@ -15,7 +17,11 @@ const routes: Routes = [
       title: 'Full Layout Page'
     },
   },
-  { path: 'notaDeVenta', component: NotaVentaComponent },
+  { 
+    path: 'notaDeVenta', 
+    component: NotaVentaComponent 
+    canActivate: [ AuthGuardService ]
+  },
   { path: 'book', component: BookComponent },
   { path: 'fmReactiva', component: FmReactiveComponent },
 ];
