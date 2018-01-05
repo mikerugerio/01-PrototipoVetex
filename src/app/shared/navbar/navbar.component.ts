@@ -10,8 +10,21 @@ import { AuthService } from "../services/auth.service";
 
 export class NavbarComponent{
 
+	profile: any;
+
 	constructor (private auth:AuthService){
 		auth.handleAuthentication();
+
+		if (this.auth.userProfile) {
+	      this.profile = this.auth.userProfile;
+	      console.log(this.profile);
+	    } else {
+	      this.auth.getProfile((err, profile) => {
+	        this.profile = profile;
+	        console.log(this.profile);
+	      });
+	    }
+
 	}
 
 	login(){
