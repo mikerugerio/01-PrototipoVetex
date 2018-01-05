@@ -82,7 +82,7 @@
                                 <span>My Inbox</span>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="javascript:;">
+                            <a *ngIf="auth.isAuthenticated()" class="dropdown-item" (click)="salir()" >
                                 <i class="ft-power mr-2"></i>
                                 <span>Logout</span>
                             </a>
@@ -90,7 +90,8 @@
                     </li>
 
                     <li class="nav-item" ngbDropdown placement="bottom-right" >
-                        <a class="nav-link position-relative" id="dropdownBasic3" (click)="login()" >
+                        <a *ngIf="!auth.isAuthenticated()"  class="nav-link position-relative" 
+                        id="dropdownBasic3" (click)="login()" >
                             <i class="ft-user font-medium-3 blue-grey darken-4"></i>
                             <p class="d-none" >Login</p>
                         </a>

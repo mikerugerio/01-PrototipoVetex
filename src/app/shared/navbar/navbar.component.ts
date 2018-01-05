@@ -10,9 +10,15 @@ import { AuthService } from "../services/auth.service";
 
 export class NavbarComponent{
 
-	constructor (private auth:AuthService){ }
+	constructor (private auth:AuthService){
+		auth.handleAuthentication();
+	}
 
 	login(){
 		this.auth.login();
+	}
+
+	salir(){
+		this.auth.logout();
 	}
 }
