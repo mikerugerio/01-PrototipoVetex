@@ -19,8 +19,8 @@ const routes: Routes = [
   },
   { 
     path: 'notaDeVenta', 
-    component: NotaVentaComponent 
-    canActivate: [ AuthGuardService ]
+    component: NotaVentaComponent,
+    canActivate: [ AuthGuardService ],
   },
   { path: 'book', component: BookComponent },
   { path: 'fmReactiva', component: FmReactiveComponent },
