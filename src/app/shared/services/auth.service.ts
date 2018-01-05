@@ -13,7 +13,7 @@ export class AuthService {
     domain: 'pvo.auth0.com',
     responseType: 'token id_token',
     audience: 'https://pvo.auth0.com/userinfo',
-    redirectUri: 'http://localhost:3000/callback',
+    redirectUri: 'http://localhost:4200/full-layout',
     scope: 'openid'
   });
 
