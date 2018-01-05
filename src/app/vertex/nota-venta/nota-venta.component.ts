@@ -14,6 +14,8 @@ import { MicasService } from "./services/micas.service";
 import { ArmazonesService } from "./services/armazones.service";
 import { OtrosProdService } from "./services/otrosProd.service";
 
+import { AuthService } from "../../shared/services/auth.service";
+
 interface IMica {
   nombre: string
   grad: string
@@ -41,6 +43,7 @@ class NotaVenta {
   pago: number
   fechaVenta: Date
   listArmazones: IArmazon[]
+  vendedor: string
 }
 
 @Component({
@@ -62,6 +65,8 @@ export class NotaVentaComponent implements OnInit {
   dateString: string;
   fechaVenta: Date;
 
+  profile: any;
+
   constructor(
     private usuariosService: UsuariosService,
     private micasService: MicasService,
@@ -69,6 +74,7 @@ export class NotaVentaComponent implements OnInit {
     private otrosProdService :OtrosProdService,
     private modalService: NgbModal,
     private http: HttpClient,
+    private auth: AuthService,
   ) { 
       this.urlServidor = environment.serverUrl + 'notaVenta';
   }
@@ -86,6 +92,17 @@ export class NotaVentaComponent implements OnInit {
       'pedidoProductos' : new FormArray([]),
       'pago': new FormControl(),
     });
+
+    //OBTIENE INFORMACION DEL USUARIO AUTENTIFICADO
+    if (this.auth.userProfile) {
+        this.profile = this.auth.userProfile;
+        console.log(this.profile);
+    } else {
+        this.auth.getProfile((err, profile) => {
+          this.profile = profile;
+          console.log(this.profile);
+        });
+    }
   }
 
   onAceptar(){
@@ -106,6 +123,9 @@ export class NotaVentaComponent implements OnInit {
     this.fechaVenta = new Date(this.dateString);
 
     this.notaVenta.fechaVenta = this.fechaVenta
+
+    //VENDEDOR
+    this.notaVenta.vendedor = this.profile.name
 
     //LISTA ARMAZONES
     this.notaVenta.listArmazones = this.formaNotaVenta.get('pedidoArmazones').value;
